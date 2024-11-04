@@ -19,12 +19,26 @@ export default class App extends Component {
         ]
     }
 
+    /* 子组件给父组件传内容, 仅需要传递事件回调 */
+    // 用于添加一个todo, 接收参数为todo对象
+    addTodo = (todoObj)=>{
+        // 打印子组件传回的内容
+        console.log('APP:', todoObj);
+
+        // 获取todo列表, 并将传参插入列表首位
+        const {todos} = this.state;
+        const newTodo = [todoObj, ...todos]
+
+        // 更新列表状态
+        this.setState({todos:newTodo})
+    }
+
     render() {
         const {todos} = this.state;
         return (
             <div className="todo-container">
                 <div className="todo-wrap">
-                    <Header/>
+                    <Header addTodo={this.addTodo}/>
                     <List todos={todos}/>
                     <Footer />
                 </div>
