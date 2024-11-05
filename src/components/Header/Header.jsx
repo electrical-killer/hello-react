@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import {nanoid} from "nanoid"
 import header from "./Header.module.css";
 
 export default class Header extends Component {
+
+    static propTypes = {
+        addTodo:PropTypes.func.isRequired
+    }
 
     /* 触发事件与操作内容为 同一组件, 直接使用事件属性*/
     handleKeyUp = event=>{
