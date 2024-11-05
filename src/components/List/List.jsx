@@ -7,7 +7,8 @@ export default class List extends Component {
 
     static propTypes = {
         todos:PropTypes.array.isRequired,
-        updataTodo:PropTypes.func.isRequired
+        updataTodo:PropTypes.func.isRequired,
+        deleteTodo:PropTypes.func.isRequired
     }
 
     render() {
@@ -18,7 +19,7 @@ export default class List extends Component {
                 {
                     /* map记得需要key */
                     todos.map( todo=>{
-                        return <Item key={todo.id} {...todo} updataTodo={this.props.updataTodo}/>;
+                        return <Item key={todo.id} {...todo} updataTodo={this.props.updataTodo} deleteTodo={this.props.deleteTodo}/>;
                     })
                 }
             </ul>

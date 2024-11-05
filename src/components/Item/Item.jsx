@@ -19,6 +19,11 @@ export default class Item extends Component {
         }
     }
 
+    headleDelete = id=>{
+        // console.log(id)
+        this.props.deleteTodo(this.props.id);
+    }
+
     render() {
         const {id, title, done} = this.props;
         const {mouse} = this.state;
@@ -28,7 +33,7 @@ export default class Item extends Component {
                     <input type="checkbox" checked={done} onChange={this.headleChange(id)}/>
                     <span>{title}</span>
                 </label>
-                <button className="btn btn-danger" style={{display:mouse?'block':"none"}}>删除</button>
+                <button onClick={()=>{this.headleDelete(id)}} className="btn btn-danger" style={{display:mouse?'block':"none"}}>删除</button>
             </li>
         );
     }

@@ -48,13 +48,25 @@ export default class App extends Component {
         this.setState({todos:newTodo}) /* 更新todo列表 */
     }
 
+    deleteTodo = (id)=>{
+        const {todos} = this.state;
+
+        /* 从数组中删除指定id元素 */
+        /* 数组过滤, 当id值不一致, 返回该值 */
+        const newTodos = todos.filter(todoObj=>{
+            return todoObj.id !== id; /* 过滤条件, 当满足这个条件时, 可以返回 */
+        })
+
+        this.setState({todos:newTodos})
+    }
+
     render() {
         const {todos} = this.state;
         return (
             <div className="todo-container">
                 <div className="todo-wrap">
                     <Header addTodo={this.addTodo}/>
-                    <List todos={todos} updataTodo={this.updataTodo}/>
+                    <List todos={todos} updataTodo={this.updataTodo} deleteTodo={this.deleteTodo}/>
                     <Footer />
                 </div>
             </div>
