@@ -11,7 +11,7 @@ export default class List extends Component {
                 {
                     /* map记得需要key */
                     todos.map( todo=>{
-                        return <Item key={todo.id} {...todo}/>;
+                        return <Item key={todo.id} {...todo} updataTodo={this.props.updataTodo}/>;
                     })
                 }
             </ul>

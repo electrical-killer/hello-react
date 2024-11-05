@@ -13,13 +13,19 @@ export default class Item extends Component {
         }
     }
 
+    headleChange = id=>{
+        return (event)=>{
+            this.props.updataTodo(id, event.target.checked) /* event.target.checked: 表示当前onChange事件的最新值 */
+        }
+    }
+
     render() {
-        const {title, done} = this.props;
+        const {id, title, done} = this.props;
         const {mouse} = this.state;
         return (
             <li style={{backgroundColor:mouse?'#ddd':"white"}} onMouseEnter={this.headleMouse(true)} onMouseLeave={this.headleMouse(false)}>
                 <label>
-                    <input type="checkbox" defaultChecked={done}/>
+                    <input type="checkbox" checked={done} onChange={this.headleChange(id)}/>
                     <span>{title}</span>
                 </label>
                 <button className="btn btn-danger" style={{display:mouse?'block':"none"}}>删除</button>

@@ -33,13 +33,28 @@ export default class App extends Component {
         this.setState({todos:newTodo})
     }
 
+    updataTodo = (id, done)=>{
+        const {todos} = this.state;
+        
+        const newTodo = todos.map(todoObj=>{
+            if(todoObj.id === id){
+                return {...todoObj, done} /* 展开todoObj对象属性, 并且更新done属性参数, 并返回 */
+            }
+            else{
+                return todoObj; /* 没有找到对应对象, 将本身返回 */
+            }
+        })
+
+        this.setState({todos:newTodo}) /* 更新todo列表 */
+    }
+
     render() {
         const {todos} = this.state;
         return (
             <div className="todo-container">
                 <div className="todo-wrap">
                     <Header addTodo={this.addTodo}/>
-                    <List todos={todos}/>
+                    <List todos={todos} updataTodo={this.updataTodo}/>
                     <Footer />
                 </div>
             </div>
