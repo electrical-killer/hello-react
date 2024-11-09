@@ -22,7 +22,7 @@ export default class Item extends Component {
     headleDelete = id=>{
         // console.log(id)
         if(window.confirm('确认删除吗?')){
-            this.props.deleteTodo(this.props.id);
+            this.props.deleteTodo(id);
         }
     }
 

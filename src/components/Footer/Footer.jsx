@@ -35,7 +35,7 @@ export default class Footer extends Component {
             <span> / </span>
             <span>全部 {total}</span>
         </span>
-        <button onClick={this.headleChick} className="btn btn-danger">清除已完成的任务</button>
+        <button onClick={this.headleChick} style={{display:done_num?"block":"none"}} className="btn btn-danger">清除已完成的任务</button>
       </div>
     )
   }
