@@ -11,6 +11,27 @@ export default class Messages extends Component {
       {id:3, title: 'message3'}
     ]
   }
+
+  repalceShow = (id, title)=>{
+    return (()=>{
+      return (
+        // this.props.history.replace(`/home/messages/detail/${id}/${title}`)
+        // this.props.history.replace(`/home/messages/detail/?id=${id}&title=${title}`)
+        this.props.history.replace("/home/messages/detail", {id, title})
+      )
+    })
+  }
+
+  pushShow = (id, title)=>{
+    return (()=>{
+      return (
+        // this.props.history.push(`/home/messages/detail/${id}/${title}`)
+        // this.props.history.push(`/home/messages/detail/?id=${id}&title=${title}`)
+        this.props.history.push("/home/messages/detail", {id, title})
+      )
+    })
+  }
+
   render() {
     const {message} = this.state
     return (
@@ -34,6 +55,12 @@ export default class Messages extends Component {
                 <Link to={{pathname:"/home/messages/detail", state:{id:messgaeObj.id, title:messgaeObj.title}}}>
                   {messgaeObj.title}
                 </Link>
+
+                {/* 编写一段代码, 实现replace跳转 */}
+                <button onClick={this.repalceShow(messgaeObj.id, messgaeObj.title)} >replace查看</button>
+
+                {/* 编写一段代码, 实现push跳转 */}
+                <button onClick={this.pushShow(messgaeObj.id, messgaeObj.title)} >push查看</button>
               </li>
             )
           })

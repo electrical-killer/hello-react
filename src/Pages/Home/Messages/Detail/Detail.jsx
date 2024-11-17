@@ -15,12 +15,12 @@ export default class Detail extends Component {
 
 
         /* 接收路由组件传过来的search参数 */
-        // const {search} = this.props.location
         /*
-            方法 qs.parse() 表示将search类型字符串, 转换为键值对象
-            其中search.slice(1) 表示将字串第一个字符 ? 截取掉,
-            注意querystring不再使用, 更新为querystring-es3
+        方法 qs.parse() 表示将search类型字符串, 转换为键值对象
+        其中search.slice(1) 表示将字串第一个字符 ? 截取掉,
+        注意querystring不再使用, 更新为querystring-es3
         */
+        // const {search} = this.props.location
         // const {id, title} = qs.parse(search.slice(1))
 
 
