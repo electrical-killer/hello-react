@@ -31,7 +31,7 @@ export default class App extends Component {
                     <MyNavLink to='/home'>Home</MyNavLink>
                 </div>
             </div>
-            {/* 展示区 */},,
+            {/* 展示区 */}
             <div className="col-xs-6">
                 <div className="panel">
                     <div className="panel-body">
